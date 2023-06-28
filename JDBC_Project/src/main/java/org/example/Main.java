@@ -28,7 +28,7 @@ public class Main {
                 System.out.println("Enter How Much Marks Obtain By Students");
                 int gain_marks = Integer.parseInt(br.readLine());
 
-                //create information for store dtails
+                //create information for store details
                 Information information = new Information(roll_number,student_name,subject,total_marks,gain_marks);
                 boolean f = Query.insertStudentToDB(information);
                 if (f){
@@ -50,8 +50,31 @@ public class Main {
                 }
             } else if (button==3) {
                 //update information;
+                System.out.println("Enter Roll Number Which You Want To Update");
+                int roll_number1 = Integer.parseInt(br.readLine());
+                System.out.println("Enter Subject Name which you want to update");
+                String subject1 = br.readLine();
+                System.out.println("Enter Updated Roll Number Of Student ");
+                int roll_number = Integer.parseInt(br.readLine());
+                System.out.println("Enter Updated Student Name");
+                String student_name = br.readLine();
+                System.out.println("Enter Updated Subject Name");
+                String subject = br.readLine();
+                System.out.println("Enter Updated Number How Much Subject Marks Was.....");
+                int total_marks = Integer.parseInt(br.readLine());
+                System.out.println("Enter How Updated Marks Obtain By Students");
+                int gain_marks = Integer.parseInt(br.readLine());
+
+                Information information = new Information(roll_number,student_name,subject,total_marks,gain_marks);
+                boolean f = Query.updateToDB(information,subject1,roll_number1);
+                if (f){
+                    System.out.println("Data Updated Successfully............");
+                }else {
+                    System.out.println("Something Went Wrong................");
+                }
             } else if (button==4) {
                 //display information
+                Query.displayInformation();
             } else if(button==5) {
                 //exit
                 break;
